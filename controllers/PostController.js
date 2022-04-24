@@ -36,5 +36,13 @@ module.exports = {
         } catch(err) {
             error(res, err.message);
         }
-    }
+    },
+    async deleteAllPosts(req, res) {
+        try {
+            await PostModel.deleteMany({});
+            success(res, []);
+        } catch(err) {
+            error(res, err.message);
+        }
+    },
 }
