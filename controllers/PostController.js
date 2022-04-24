@@ -53,5 +53,26 @@ module.exports = {
         } catch(err) {
             error(res, err.message);
         }
+    },
+    async patchPostContent(req, res) {
+        try {
+            const id = req.params.id;
+            const { content } = req.body;
+
+            if ( !content ) {
+                error(res, '【內容】必填');
+                return;
+            }
+
+            const data = await PostModel.findByIdAndUpdate(
+                id,
+                {
+                    content,
+                }
+            )
+            success(res, data);
+        } catch(err) {
+            error(res, err.message);
+        }
     }
 }

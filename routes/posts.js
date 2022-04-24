@@ -11,4 +11,6 @@ Router.delete('/', (req, res) => PostController.deleteAllPosts(req, res));
 
 Router.delete('/:id', (req, res) => PostController.deletePost(req, res));
 
+Router.patch('/:id', (req, res) => PostController.patchPostContent(req, res));
+
 module.exports = Router;
