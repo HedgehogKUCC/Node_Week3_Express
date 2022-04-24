@@ -45,4 +45,13 @@ module.exports = {
             error(res, err.message);
         }
     },
+    async deletePost(req, res) {
+        try {
+            const id = req.params.id;
+            const data = await PostModel.findByIdAndDelete(id);
+            success(res, data);
+        } catch(err) {
+            error(res, err.message);
+        }
+    }
 }

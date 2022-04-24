@@ -9,4 +9,6 @@ Router.post('/', (req, res) => PostController.insertPost(req, res));
 
 Router.delete('/', (req, res) => PostController.deleteAllPosts(req, res));
 
+Router.delete('/:id', (req, res) => PostController.deletePost(req, res));
+
 module.exports = Router;
