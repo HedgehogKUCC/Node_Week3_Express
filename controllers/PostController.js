@@ -75,7 +75,13 @@ module.exports = {
                 {
                     content,
                 }
-            )
+            );
+
+            if ( !data ) {
+                error(res, '資料錯誤');
+                return;
+            }
+
             success(res, data);
         } catch(err) {
             error(res, err.message);
