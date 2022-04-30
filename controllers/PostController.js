@@ -49,6 +49,12 @@ module.exports = {
         try {
             const id = req.params.id;
             const data = await PostModel.findByIdAndDelete(id);
+
+            if ( !data ) {
+                error(res, '資料錯誤');
+                return;
+            }
+
             success(res, data);
         } catch(err) {
             error(res, err.message);
