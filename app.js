@@ -22,4 +22,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
 
+app.use((req, res, next) => {
+    res.status(404).json({
+        result: false,
+        msg: 'Not Found Router',
+    });
+});
+
 module.exports = app;
