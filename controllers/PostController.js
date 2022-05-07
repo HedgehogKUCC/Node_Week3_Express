@@ -39,6 +39,13 @@ module.exports = {
     },
     async deleteAllPosts(req, res) {
         try {
+            if ( req.originalUrl === '/posts/' ) {
+                res.status(404).send({
+                    result: false,
+                    msg: '無此路由',
+                })
+                return;
+            }
             await PostModel.deleteMany({});
             success(res, []);
         } catch(err) {
